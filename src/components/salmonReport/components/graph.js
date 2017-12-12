@@ -62,7 +62,7 @@ class SalmonGraph extends Component {
         <div className="graph-tools">
           <h3>
             Pris per kg.{" "}
-            {this.state.salmonType === 0 ? "Fersk laks." : "Frossen laks"}
+            {this.state.salmonType === 0 ? "Fersk laks" : "Frossen laks"}
           </h3>
           <div className="timespan-buttons">
             <button onClick={this.handleOnClick} value="365" name="timespan">

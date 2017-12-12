@@ -34,7 +34,7 @@ class SalmonReport extends Component {
       <main className="salmon-report">
         <SalmonInfo data={this.props.data} />
         <SalmonGraph data={this.props.data} />
-        <Toolbar />
+        <Toolbar data={this.props.data} />
         {this.state.tableVisible ? <SalmonTable data={this.props.data} /> : ""}
       </main>
     );

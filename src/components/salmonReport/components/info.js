@@ -24,7 +24,7 @@ class SalmonInfo extends Component {
   }
 
   calculateChange() {
-    const { percent, valuta } = calculateChange(this.props.data);
+    const { percent, valuta } = calculateChange(this.props.data, 2);
     return (
       <h2 style={percent > 0 ? { color: "green" } : { color: "red" }}>
         {percent}% | {valuta}kr

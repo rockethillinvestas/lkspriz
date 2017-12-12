@@ -6,7 +6,7 @@ class SalmonTable extends Component {
   constructor(props) {
     super(props);
     this.state = { salmonType: 0 };
-    this.updateUserInterface = this.updateUserInterface.bind(this)
+    this.updateUserInterface = this.updateUserInterface.bind(this);
   }
 
   componentWillMount() {

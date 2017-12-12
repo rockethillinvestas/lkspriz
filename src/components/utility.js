@@ -11,9 +11,19 @@ export const getDateFromWeek = (week, year, unix) => {
   return unix ? moment(date).unix() : moment(date).format("LL");
 };
 
-export const calculateChange = data => {
-  var y2 = data.value[data.value.length / 2 - 1];
-  var y1 = data.value[data.value.length / 2 - 3];
+export const calculateChange = (data, weeks) => {
+  var salmonType = userInterfaceStore.getInterface().salmonType;
+  var weekDifference = weeks !== 1 ? weeks * 2 - 1 : weeks;
+  var y2 =
+    data.value[
+      salmonType === 0 ? data.value.length / 2 - 1 : data.value.length - 1
+    ];
+  var y1 =
+    data.value[
+      salmonType === 0
+        ? data.value.length / 2 - weekDifference
+        : data.value.length - weekDifference
+    ];
   var percent = parseFloat((y2 - y1) / y1 * 100).toFixed(2);
   var valuta = parseFloat(y2 - y1).toFixed(2);
   return { percent, valuta };
