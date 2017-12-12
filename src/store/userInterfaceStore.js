@@ -1,26 +1,26 @@
-var EventEmitter = require('events').EventEmitter;
+var EventEmitter = require("events").EventEmitter;
 var emitter = new EventEmitter();
 
 var userInterface = {
-	tableVisible: false,
-	graphVisible: false
+  tableVisible: false,
+  graphVisible: false
 };
 
 module.exports = {
-	getInterface: () => {
-		return userInterface;
-	},
+  getInterface: () => {
+    return userInterface;
+  },
 
-	subscribe: (callback) => {
-		emitter.on('update', callback);
-	},
+  subscribe: callback => {
+    emitter.on("update", callback);
+  },
 
-	unsubscribe:  (callback) => {
-		emitter.removeListener('update', callback);
-	},
+  unsubscribe: callback => {
+    emitter.removeListener("update", callback);
+  },
 
-	updateInterface: (data) => {
-		userInterface = {...userInterface, [data.name]: data.value };
-		emitter.emit('update');
-	}
+  updateInterface: data => {
+    userInterface = { ...userInterface, [data.name]: data.value };
+    emitter.emit("update");
+  }
 };

@@ -14,7 +14,7 @@ class App extends Component {
       dataset: [],
       error: [],
       fetching: true,
-      fetched: false,
+      fetched: false
     };
   }
 
@@ -45,7 +45,7 @@ class App extends Component {
         </div>
       );
     } else {
-      return <h1>Laster</h1>;
+      return <h1 style={{margin: 'auto', textAlign: 'center'}}  >Laster</h1>;
     }
   }
 }
