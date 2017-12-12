@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import userInterfaceStore from "./../../store/userInterfaceStore";
+import userInterfaceStore from "./../../../store/userInterfaceStore";
+import * as _ from "lodash";
+import { filterUpdate } from "../../utility";
 
 class Toolbar extends Component {
   constructor(props) {
@@ -18,8 +20,8 @@ class Toolbar extends Component {
   }
 
   updateInterface() {
-    const userInterface = userInterfaceStore.getInterface();
-    this.setState({ userInterface: userInterface });
+    var userInterface = userInterfaceStore.getInterface();
+    this.setState(filterUpdate(userInterface, this.state));
   }
 
   handleClick(e) {
@@ -38,13 +40,13 @@ class Toolbar extends Component {
             Vis historie{" "}
             <input
               type="checkbox"
-              checked={!!this.state.userInterface.tableVisible}
+              checked={!!this.state.tableVisible}
               name="tableVisible"
               onChange={this.handleClick}
             />
           </p>
         </div>
-        <div className="graph">
+        {/*         <div className="graph">
           <p>
             Vis graf{" "}
             <input
@@ -54,7 +56,7 @@ class Toolbar extends Component {
               onChange={this.handleClick}
             />
           </p>
-        </div>
+        </div> */}
       </div>
     );
   }

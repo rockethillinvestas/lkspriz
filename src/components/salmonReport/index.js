@@ -1,15 +1,18 @@
 import React, { Component } from "react";
-import SalmonTable from "./table";
-import SalmonGraph from "./graph";
-import SalmonInfo from "./info";
-import Toolbar from "./toolbar";
 
+import SalmonTable from "./components/table";
+import SalmonGraph from "./components/graph";
+import SalmonInfo from "./components/info";
+import Toolbar from "./components/toolbar";
+
+import * as _ from "lodash";
 import userInterfaceStore from "./../../store/userInterfaceStore";
+import { filterUpdate } from "../utility";
 
 class SalmonReport extends Component {
   constructor(props) {
     super(props);
-    this.state = { userInterface: {} };
+    this.state = { tableVisible: false };
     this.updateInterface = this.updateInterface.bind(this);
   }
 
@@ -22,27 +25,18 @@ class SalmonReport extends Component {
   }
 
   updateInterface() {
-    var UI = userInterfaceStore.getInterface();
-    this.setState({ userInterface: UI });
+    var userInterface = userInterfaceStore.getInterface();
+    this.setState(filterUpdate(userInterface, this.state));
   }
 
   render() {
     return (
-      <div className="salmon-report">
-        <h3>{this.props.data.label}</h3>
+      <main className="salmon-report">
         <SalmonInfo data={this.props.data} />
+        <SalmonGraph data={this.props.data} />
         <Toolbar />
-        {this.state.userInterface.tableVisible ? (
-          <SalmonTable data={this.props.data} />
-        ) : (
-          ""
-        )}
-        {this.state.userInterface.graphVisible ? (
-          <SalmonGraph data={this.props.data} />
-        ) : (
-          ""
-        )}
-      </div>
+        {this.state.tableVisible ? <SalmonTable data={this.props.data} /> : ""}
+      </main>
     );
   }
 }

@@ -3,7 +3,8 @@ var emitter = new EventEmitter();
 
 var userInterface = {
   tableVisible: false,
-  graphVisible: false
+  salmonType: 0,
+  timespan: 365
 };
 
 module.exports = {
