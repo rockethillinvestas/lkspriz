@@ -13,4 +13,6 @@ h4,
 h5 {
   font-family: "Roboto", sans-serif;
   margin: 0;
+  font-weight: 200;
+  color: #27292b;
 }

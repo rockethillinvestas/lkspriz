@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import userInterfaceStore from "./../../../store/userInterfaceStore";
-import * as _ from "lodash";
 import { filterUpdate } from "../../utility";
 import Changes from "./changes";
+import * as moment from "moment";
 
 class Toolbar extends Component {
   constructor(props) {
@@ -36,12 +36,6 @@ class Toolbar extends Component {
   render() {
     return (
       <div className="toolbar">
-        <div className="change-bar">
-          <Changes data={this.props.data} weeks={10} />
-          <Changes data={this.props.data} weeks={20} />
-          <Changes data={this.props.data} weeks={30} />
-          <Changes data={this.props.data} weeks={52} />
-        </div>
         <div className="history">
           <p>
             Vis historie{" "}

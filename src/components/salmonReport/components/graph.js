@@ -10,11 +10,11 @@ import {
   Tooltip,
   Legend
 } from "recharts";
-import { getDateFromWeek, computeData, filterUpdate } from "../../utility";
+import { computeData, filterUpdate } from "../../utility";
 import * as moment from "moment";
-import * as _ from "lodash";
 import "moment/locale/nb";
 import userInterfaceStore from "../../../store/userInterfaceStore";
+import Changes from "./changes";
 
 class SalmonGraph extends Component {
   constructor(props) {
@@ -84,10 +84,10 @@ class SalmonGraph extends Component {
         </div>
         <ResponsiveContainer>
           <ComposedChart
-            width={600}
+            width={"100%"}
             height={400}
             data={data}
-            margin={{ right: 20, left: 20, bottom: 60 }}
+            margin={{ bottom: 10, top: 10 }}
           >
             <Legend />
             <XAxis dataKey="time" tickFormatter={this.dateFormat} />
@@ -127,6 +127,29 @@ class SalmonGraph extends Component {
             />
           </ComposedChart>
         </ResponsiveContainer>
+
+        <div className="changes">
+          <div className="changes-month">
+            <Changes data={this.props.data} weeks={5} />
+            <p>1 måned</p>
+          </div>
+          <div className="changes-quarter">
+            <Changes data={this.props.data} weeks={14} />
+            <p>3 måneder</p>
+          </div>
+          <div className="changes-halfyear">
+            <Changes data={this.props.data} weeks={26} />
+            <p>6 måneder</p>
+          </div>
+          <div className="changes-year">
+            <Changes data={this.props.data} weeks={52} />
+            <p>1 år</p>
+          </div>
+          <div className="changes-ytd">
+            <Changes data={this.props.data} weeks={moment().week()} />
+            <p>Hittil i år</p>
+          </div>
+        </div>
       </div>
     );
   }

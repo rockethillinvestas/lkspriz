@@ -1,6 +1,6 @@
 .salmon-report {
   width: 100%;
-  background: #fafafa;
+  background: #f4f4f4;
   min-height: 100vh;
 }
 
@@ -46,12 +46,13 @@
 
 .salmon-info .salmontype-button li button {
   width: 80%;
-  padding: 2px;
+  padding: 5px;
   margin-bottom: 5px;
   border: 1px solid #345995;
-  border-radius: 50px;
   color: #345995;
   background: white;
+  text-transform: uppercase;
+  font-weight: bold;
   transition: all 0.1s;
 }
 
@@ -101,30 +102,52 @@
   margin-bottom: 20px;
   box-shadow: 2px 2px 5px 1px #ddd;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   text-align: center;
   border-radius: 5px;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 10% 80% 10%;
 }
 
-.salmon-report .toolbar .changes-month {
-  grid-column: 1;
-}
-
-.salmon-report .toolbar .changes-quarter {
-  grid-column: 2;
-}
-
-.salmon-report .toolbar .changes-halfyear {
+.salmon-report .toolbar h3 {
+  text-align: center;
+  grid-row: 1;
   grid-column: 3;
 }
 
-.salmon-report .toolbar .changes-year {
+.salmon-report .salmon-graph .changes {
+  grid-row: 3;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  margin: 0;
+}
+
+.salmon-report .changes-month {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.salmon-report .changes-quarter {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.salmon-report .changes-halfyear {
+  grid-row: 2;
+  grid-column: 3;
+}
+
+.salmon-report .changes-year {
+  grid-row: 2;
   grid-column: 4;
 }
 
-.salmon-report .toolbar .history {
+.salmon-report .changes-ytd {
   grid-row: 2;
+  grid-column: 5;
+}
+
+.salmon-report .toolbar .history {
+  grid-row: 3;
 }
 
 .salmon-report .salmon-graph {
@@ -136,25 +159,113 @@
   margin: auto;
   padding: 20px;
   margin-bottom: 20px;
+  display: grid;
+  grid-template-rows: 10% 75% 15%;
 }
 
 .salmon-report .salmon-graph .graph-tools {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-row: 1;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .salmon-report .salmon-graph .graph-tools h3 {
-  grid-column: 2;
+  grid-column: 1;
   margin: auto;
 }
 
 .salmon-report .salmon-graph .graph-tools .timespan-buttons {
-  grid-column: 3;
+  grid-column: 2;
   margin: auto;
 }
 
-.salmon-report .salmon-graph .graph-tools .salmontype-button {
-  grid-column: 1;
+.salmon-report .salmon-graph .graph-tools .timespan-buttons button {
+  border: 1px solid #345995;
+  margin: 2px;
+  padding: 5px 10px;
+  color: #345995;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: white;
+  transition: 0.1s;
+}
+
+.salmon-report .salmon-graph .graph-tools .timespan-buttons button:hover {
+  color: white;
+  background: #345995;
+}
+
+.salmon-report .salmon-graph .graph-tools .timespan-buttons button:active {
+  background: #446098;
+}
+
+.salmon-report .salmon-graph .graph-tools .timespan-buttons button:focus {
+  outline: 0;
+}
+
+.salmon-report .salmon-graph .graph-tools .timespan-buttons button.activated {
+  color: white;
+  background: #375286;
+}
+.salmon-report .salmon-graph .recharts-responsive-container {
+  grid-row: 2;
   margin: auto;
+}
+
+.App-loading {
+  min-height: 100vh;
+  margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .salmon-info {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 5px;
+  }
+
+  .salmon-info .last-price {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .salmon-info .last-volume {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .salmon-info .last-report {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .salmon-info .change {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .salmon-info .salmontype-button {
+    grid-column: span 2;
+    grid-row: 3;
+    align-self: center;
+  }
+  .salmon-report .salmon-graph {
+    width: 100%;
+    height: 60vh;
+    padding: 0;
+  }
+
+  .salmon-report .salmon-graph .recharts-responsive-container {
+    height: 100%;
+  }
+
+  .salmon-report .salmon-graph .graph-tools {
+    margin: 10px;
+  }
+
+  .salmon-info .salmontype-button ul {
+    padding: 0;
+  }
 }

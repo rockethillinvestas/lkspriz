@@ -5,7 +5,6 @@ import SalmonGraph from "./components/graph";
 import SalmonInfo from "./components/info";
 import Toolbar from "./components/toolbar";
 
-import * as _ from "lodash";
 import userInterfaceStore from "./../../store/userInterfaceStore";
 import { filterUpdate } from "../utility";
 

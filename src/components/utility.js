@@ -24,8 +24,8 @@ export const calculateChange = (data, weeks) => {
         ? data.value.length / 2 - weekDifference
         : data.value.length - weekDifference
     ];
-  var percent = parseFloat((y2 - y1) / y1 * 100).toFixed(2);
-  var valuta = parseFloat(y2 - y1).toFixed(2);
+  var percent = parseFloat((y2 - y1) / y1 * 100).toFixed(1);
+  var valuta = parseFloat(y2 - y1).toFixed(1);
   return { percent, valuta };
 };
 

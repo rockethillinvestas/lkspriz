@@ -4,6 +4,8 @@ import "./App.css";
 import Error from "./components/error/";
 import SalmonReport from "./components/salmonReport/";
 
+import Loading from "./components/loading/";
+
 import axios from "axios";
 import * as _ from "lodash";
 
@@ -45,7 +47,11 @@ class App extends Component {
         </div>
       );
     } else {
-      return <h1 style={{ margin: "auto", textAlign: "center" }}>Laster</h1>;
+      return (
+        <div className="App-loading">
+          <Loading />
+        </div>
+      );
     }
   }
 }

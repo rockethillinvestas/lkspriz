@@ -5,7 +5,7 @@ class Changes extends Component {
   render() {
     var { percent } = calculateChange(this.props.data, this.props.weeks);
     return (
-      <div classNames="change">
+      <div className="change">
         <p style={percent > 0 ? { color: "green" } : { color: "red" }}>
           {percent}%
         </p>
