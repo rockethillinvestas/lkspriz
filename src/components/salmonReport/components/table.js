@@ -66,6 +66,7 @@ class SalmonTable extends Component {
                       </td>
                     </tr>
                   );
+                return null;
             })}
           </tbody>
         </table>

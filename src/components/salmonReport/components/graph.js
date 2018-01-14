@@ -61,33 +61,57 @@ class SalmonGraph extends Component {
       <div className="salmon-graph">
         <div className="graph-tools">
           <h3>
-            Pris per kg.{" "}
+            Pris per kg.
             {this.state.salmonType === 0 ? "Fersk laks" : "Frossen laks"}
           </h3>
           <div className="timespan-buttons">
-            <button onClick={this.handleOnClick} value="365" name="timespan">
+            <button
+              className={this.state.timespan === 365 ? "timespan-active" : ""}
+              onClick={this.handleOnClick}
+              value="365"
+              name="timespan"
+            >
               1 år
             </button>
-            <button onClick={this.handleOnClick} value="730" name="timespan">
+            <button
+              className={this.state.timespan === 730 ? "timespan-active" : ""}
+              onClick={this.handleOnClick}
+              value="730"
+              name="timespan"
+            >
               2 år
             </button>
-            <button onClick={this.handleOnClick} value="1825" name="timespan">
+            <button
+              className={this.state.timespan === 1825 ? "timespan-active" : ""}
+              onClick={this.handleOnClick}
+              value="1825"
+              name="timespan"
+            >
               5 år
             </button>
-            <button onClick={this.handleOnClick} value="3650" name="timespan">
+            <button
+              className={this.state.timespan === 3650 ? "timespan-active" : ""}
+              onClick={this.handleOnClick}
+              value="3650"
+              name="timespan"
+            >
               10 år
             </button>
-            <button onClick={this.handleOnClick} value="10000" name="timespan">
+            <button
+              className={this.state.timespan === 10000 ? "timespan-active" : ""}
+              onClick={this.handleOnClick}
+              value="10000"
+              name="timespan"
+            >
               Alle år
             </button>
           </div>
         </div>
         <ResponsiveContainer>
           <ComposedChart
-            width={"100%"}
             height={400}
             data={data}
-            margin={{ bottom: 10, top: 10 }}
+            margin={{ bottom: 20, top: 10 }}
           >
             <Legend />
             <XAxis dataKey="time" tickFormatter={this.dateFormat} />

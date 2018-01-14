@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import userInterfaceStore from "./../../../store/userInterfaceStore";
 import { filterUpdate } from "../../utility";
-import Changes from "./changes";
-import * as moment from "moment";
 
 class Toolbar extends Component {
   constructor(props) {
